@@ -13,6 +13,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     int scoreCounter = 0;
+    int totalScore = 0;
     String toastMessage;
 
     @Override
@@ -22,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**This method is called when Question 1 selection is made. All of the above are correct answers*/
+    private int computeQuestion1Score()
     {
         final CheckBox bearsCheckbox = (CheckBox) findViewById(R.id.chicago_bears_checkbox);
         boolean countsBears = bearsCheckbox.isChecked();
@@ -41,9 +43,12 @@ public class MainActivity extends AppCompatActivity {
             toastMessage = " Incorrect! Please try again. ";
             getToast();
         }
+        return scoreCounter;
     }
 
     /**This method is called when Question 3 selection is made. Answer is Pittsburgh Steelers*/
+
+    private int computeQuestion3Score()
     {
         RadioButton questionThreeAnswer = findViewById(R.id.pittsburgh_steelers);
         boolean steelersIsChecked = questionThreeAnswer.isChecked();
@@ -56,10 +61,13 @@ public class MainActivity extends AppCompatActivity {
             toastMessage = " Incorrect! Please try again. ";
             getToast();
         }
+        return scoreCounter;
     }
 
     /**This method is called when Question 4 selection is made. Answer is 6 teams*/
-    {
+
+    private int computeQuestion4Score() {
+
         RadioButton questionFourAnswer = findViewById(R.id.six_teams);
         boolean sixteamsIsChecked = questionFourAnswer.isChecked();
 
@@ -71,11 +79,22 @@ public class MainActivity extends AppCompatActivity {
             toastMessage = " Incorrect! Please try again. ";
             getToast();
         }
+        return scoreCounter;
     }
 
     /**This method is called when Question 2 selection is made. Answer is Niners*/
 
-    public void showText(View view)
+    private int computeQuestion2Score() {
+
+        if (answer.equals(textView.getText())) {
+            return 1;
+        }
+        else {
+            return 0;
+        }
+    }
+
+    /** public void showText(View view)
     {
         EditText questionTwoAnswer = findViewById(R.id.user_input);
         String questionTwo = questionTwoAnswer.getText().toString();
@@ -88,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
         {
             toastMessage = " Incorrect! Please type again. ";
         }
-    }
+    }*/
 
     /**This method is calls the toast message*/
 
@@ -105,6 +124,13 @@ public class MainActivity extends AppCompatActivity {
 
     public void calculateTotalScore(View view)
     {
+
+        // Process total score
+        totalScore += computeQuestion1Score();
+        totalScore += computeQuestion2Score();
+        totalScore += computeQuestion3Score();
+        totalScore += computeQuestion4Score();
+
         getToast();
         toastMessage = " Total Score: " + scoreCounter + " points out of a possible 4 points! ";
         getToast();
