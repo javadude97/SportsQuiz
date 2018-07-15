@@ -13,7 +13,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     int scoreCounter = 0;
-    int totalScore = 0;
+
     String toastMessage;
 
     @Override
@@ -22,21 +22,22 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    /**This method is called when Question 1 selection is made. All of the above are correct answers*/
-    private int computeQuestion1Score()
-    {
-        final CheckBox bearsCheckbox = (CheckBox) findViewById(R.id.chicago_bears_checkbox);
+    /**This method is called when Question 1 selection is made. All of the above are correct answer*/
+    private int computeQuestion1Score() {
+        CheckBox bearsCheckbox = (CheckBox) findViewById(R.id.chicago_bears_checkbox);
         boolean countsBears = bearsCheckbox.isChecked();
-        final CheckBox packersCheckbox = (CheckBox) findViewById(R.id.greenbay_packers_checkbox);
+        CheckBox packersCheckbox = (CheckBox) findViewById(R.id.greenbay_packers_checkbox);
         boolean countsPackers = packersCheckbox.isChecked();
-        final CheckBox giantsCheckbox = (CheckBox) findViewById(R.id.newyork_giants_checkbox);
+        CheckBox giantsCheckbox = (CheckBox) findViewById(R.id.newyork_giants_checkbox);
         boolean countsGiants = giantsCheckbox.isChecked();
-        final CheckBox redskinsCheckbox = (CheckBox) findViewById(R.id.washington_redskins_checkbox);
+        CheckBox redskinsCheckbox = (CheckBox) findViewById(R.id.washington_redskins_checkbox);
         boolean countsRedskins = redskinsCheckbox.isChecked();
+        CheckBox allaboveCheckbox = (CheckBox) findViewById(R.id.all_above_checkbox);
+        boolean countsAllabove = allaboveCheckbox.isChecked();
 
 
         /**If all four choices are NOT chosen then no points are assigned*/
-        if (countsBears && countsPackers && countsGiants && countsRedskins)
+        if ((countsBears && countsPackers && countsGiants && countsRedskins) || (countsAllabove))
         { scoreCounter +=1;
 
         } else {
@@ -82,32 +83,23 @@ public class MainActivity extends AppCompatActivity {
         return scoreCounter;
     }
 
-    /**This method is called when Question 2 selection is made. Answer is Niners*/
+    /**This method is called when Question 2 selection is made. Answer is niners*/
 
     private int computeQuestion2Score() {
+        EditText editText = (EditText) findViewById(R.id.user_input);
 
-        if (answer.equals(textView.getText())) {
-            return 1;
+        String typedInAnswer = editText.getText().toString();
+
+        if (getString(R.string.answer).equalsIgnoreCase(typedInAnswer)) {
+            scoreCounter += 1;
         }
         else {
-            return 0;
+            toastMessage = "Incorrect! Please type again. ";
+            getToast();
+            scoreCounter =0;
         }
+        return  scoreCounter;
     }
-
-    /** public void showText(View view)
-    {
-        EditText questionTwoAnswer = findViewById(R.id.user_input);
-        String questionTwo = questionTwoAnswer.getText().toString();
-
-        if (questionTwo.toLowerCase().contains("Niners"))
-        {
-            scoreCounter +=1;
-        }
-        else
-        {
-            toastMessage = " Incorrect! Please type again. ";
-        }
-    }*/
 
     /**This method is calls the toast message*/
 
@@ -126,6 +118,7 @@ public class MainActivity extends AppCompatActivity {
     {
 
         // Process total score
+        int totalScore = 0;
         totalScore += computeQuestion1Score();
         totalScore += computeQuestion2Score();
         totalScore += computeQuestion3Score();
