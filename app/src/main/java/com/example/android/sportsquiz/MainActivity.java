@@ -41,11 +41,13 @@ public class MainActivity extends AppCompatActivity {
         { scoreCounter +=1;
 
         } else {
+            CheckBox.setChecked(false);
             toastMessage = " Incorrect! Please try again. ";
             getToast();
         }
         return scoreCounter;
     }
+
 
     /**This method is called when Question 3 selection is made. Answer is Pittsburgh Steelers*/
 
@@ -59,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
         }
         else
         {
+            CheckBox.setChecked(false);
             toastMessage = " Incorrect! Please try again. ";
             getToast();
         }
@@ -77,6 +80,7 @@ public class MainActivity extends AppCompatActivity {
         }
         else
         {
+            CheckBox.setChecked(false);
             toastMessage = " Incorrect! Please try again. ";
             getToast();
         }
