@@ -13,6 +13,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     int scoreCounter = 0;
+    int totalScore = 0;
 
     String toastMessage;
 
@@ -41,7 +42,6 @@ public class MainActivity extends AppCompatActivity {
         { scoreCounter +=1;
 
         } else {
-            CheckBox.setChecked(false);   // check false case here
             toastMessage = " Incorrect! Please try again. ";
             getToast();
         }
@@ -61,7 +61,6 @@ public class MainActivity extends AppCompatActivity {
         }
         else
         {
-            CheckBox.setChecked(false);  // check false answers here
             toastMessage = " Incorrect! Please try again. ";
             getToast();
         }
@@ -80,7 +79,6 @@ public class MainActivity extends AppCompatActivity {
         }
         else
         {
-            CheckBox.setChecked(false);   // check false answers here
             toastMessage = " Incorrect! Please try again. ";
             getToast();
         }
@@ -122,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
     {
 
         // Process total score
-        int totalScore = 0;
+
         totalScore += computeQuestion1Score();
         totalScore += computeQuestion2Score();
         totalScore += computeQuestion3Score();
@@ -133,4 +131,11 @@ public class MainActivity extends AppCompatActivity {
         getToast();
     }
 
+    // Reset points scored at the end of the quiz
+    public void resetScore (View view)    {
+        totalScore = 0;
+    }
+
 }
+       
+
