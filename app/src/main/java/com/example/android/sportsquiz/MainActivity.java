@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
 
         } else {
             toastMessage = " Incorrect! Please try again. ";
-            getToast();
+            // getToast();
         }
         return scoreCounter;
     }
@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
         else
         {
             toastMessage = " Incorrect! Please try again. ";
-            getToast();
+            // getToast();
         }
         return scoreCounter;
     }
@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
         else
         {
             toastMessage = " Incorrect! Please try again. ";
-            getToast();
+            // getToast();
         }
         return scoreCounter;
     }
@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
         }
         else {
             toastMessage = "Incorrect! Please type again. ";
-            getToast();
+            // getToast();
             scoreCounter =0;
         }
         return  scoreCounter;
@@ -112,27 +112,25 @@ public class MainActivity extends AppCompatActivity {
         Toast toast = Toast.makeText(context, toastMessage, duration);
         //toast.setGravity(Gravity.BOTTOM|Gravity.RIGHT, 0, 0);
         toast.setGravity(Gravity.END, 0, 0);
-        // toast.show();
+        toast.show();
     }
     /**This toast message is shown as a total score when the SUBMIT button is clicked*/
 
-    public void calculateTotalScore(View view)
+    public void calculateTotalScore()
     {
-
         // Process total score
-
         totalScore += computeQuestion1Score();
         totalScore += computeQuestion2Score();
         totalScore += computeQuestion3Score();
         totalScore += computeQuestion4Score();
 
-        getToast();
         toastMessage = " Total Score: " + scoreCounter + " points out of a possible 4 points! ";
         getToast();
     }
 
     // Reset points scored at the end of the quiz
     public void resetScore (View view)    {
+        calculateTotalScore();
         totalScore = 0;
     }
 
