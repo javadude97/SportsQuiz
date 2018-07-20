@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         { scoreCounter +=1;
 
         } else {
-            CheckBox.setChecked(false);
+            CheckBox.setChecked(false);   // check false case here
             toastMessage = " Incorrect! Please try again. ";
             getToast();
         }
@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
         }
         else
         {
-            CheckBox.setChecked(false);
+            CheckBox.setChecked(false);  // check false answers here
             toastMessage = " Incorrect! Please try again. ";
             getToast();
         }
@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
         }
         else
         {
-            CheckBox.setChecked(false);
+            CheckBox.setChecked(false);   // check false answers here
             toastMessage = " Incorrect! Please try again. ";
             getToast();
         }
@@ -114,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
         Toast toast = Toast.makeText(context, toastMessage, duration);
         //toast.setGravity(Gravity.BOTTOM|Gravity.RIGHT, 0, 0);
         toast.setGravity(Gravity.END, 0, 0);
-        toast.show();
+        // toast.show();
     }
     /**This toast message is shown as a total score when the SUBMIT button is clicked*/
 
