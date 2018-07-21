@@ -199,7 +199,7 @@
             android:layout_marginRight="24dp"
             android:layout_marginTop="32dp"
             android:onClick="resetScore"
-            android:text="Submits"
+            android:text="Submit"
             android:textAllCaps="true"
             android:textColor="@android:color/holo_red_dark"
             android:textSize="18sp"

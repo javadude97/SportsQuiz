@@ -13,7 +13,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     int scoreCounter = 0;
-    int totalScore = 0;
+    int wrongAnswer = 0;
 
     String toastMessage;
 
@@ -23,35 +23,37 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    /**This method is called when Question 1 selection is made. All of the above are correct answer*/
-    private int computeQuestion1Score() {
-        CheckBox bearsCheckbox = (CheckBox) findViewById(R.id.chicago_bears_checkbox);
+    // This method is called when Question 1 selection is made. All of the above are correct answer
+
+    private void computeQuestion1Score() {
+        CheckBox bearsCheckbox = findViewById(R.id.chicago_bears_checkbox);
         boolean countsBears = bearsCheckbox.isChecked();
-        CheckBox packersCheckbox = (CheckBox) findViewById(R.id.greenbay_packers_checkbox);
+        CheckBox packersCheckbox = findViewById(R.id.greenbay_packers_checkbox);
         boolean countsPackers = packersCheckbox.isChecked();
-        CheckBox giantsCheckbox = (CheckBox) findViewById(R.id.newyork_giants_checkbox);
+        CheckBox giantsCheckbox = findViewById(R.id.newyork_giants_checkbox);
         boolean countsGiants = giantsCheckbox.isChecked();
-        CheckBox redskinsCheckbox = (CheckBox) findViewById(R.id.washington_redskins_checkbox);
+        CheckBox redskinsCheckbox = findViewById(R.id.washington_redskins_checkbox);
         boolean countsRedskins = redskinsCheckbox.isChecked();
-        CheckBox allaboveCheckbox = (CheckBox) findViewById(R.id.all_above_checkbox);
+        CheckBox allaboveCheckbox = findViewById(R.id.all_above_checkbox);
         boolean countsAllabove = allaboveCheckbox.isChecked();
 
 
-        /**If all four choices are NOT chosen then no points are assigned*/
+        // If all four choices are NOT chosen then no points are assigned
+
         if ((countsBears && countsPackers && countsGiants && countsRedskins) || (countsAllabove))
         { scoreCounter +=1;
 
         } else {
-            toastMessage = " Incorrect! Please try again. ";
-            // getToast();
+            wrongAnswer += 1;
+
         }
-        return scoreCounter;
+
     }
 
 
-    /**This method is called when Question 3 selection is made. Answer is Pittsburgh Steelers*/
+    // This method is called when Question 3 selection is made. Answer is Pittsburgh Steelers
 
-    private int computeQuestion3Score()
+    private void computeQuestion3Score()
     {
         RadioButton questionThreeAnswer = findViewById(R.id.pittsburgh_steelers);
         boolean steelersIsChecked = questionThreeAnswer.isChecked();
@@ -61,15 +63,15 @@ public class MainActivity extends AppCompatActivity {
         }
         else
         {
-            toastMessage = " Incorrect! Please try again. ";
-            // getToast();
+            wrongAnswer += 1;
+
         }
-        return scoreCounter;
+
     }
 
-    /**This method is called when Question 4 selection is made. Answer is 6 teams*/
+    // This method is called when Question 4 selection is made. Answer is 6 teams
 
-    private int computeQuestion4Score() {
+    private void computeQuestion4Score() {
 
         RadioButton questionFourAnswer = findViewById(R.id.six_teams);
         boolean sixteamsIsChecked = questionFourAnswer.isChecked();
@@ -79,15 +81,15 @@ public class MainActivity extends AppCompatActivity {
         }
         else
         {
-            toastMessage = " Incorrect! Please try again. ";
-            // getToast();
+             wrongAnswer += 1;
+
         }
-        return scoreCounter;
+
     }
 
-    /**This method is called when Question 2 selection is made. Answer is niners*/
+    // This method is called when Question 2 selection is made. Answer is niners
 
-    private int computeQuestion2Score() {
+    private void computeQuestion2Score() {
         EditText editText = (EditText) findViewById(R.id.user_input);
 
         String typedInAnswer = editText.getText().toString();
@@ -96,14 +98,12 @@ public class MainActivity extends AppCompatActivity {
             scoreCounter += 1;
         }
         else {
-            toastMessage = "Incorrect! Please type again. ";
-            // getToast();
-            scoreCounter =0;
+            wrongAnswer += 1;
         }
-        return  scoreCounter;
+
     }
 
-    /**This method is calls the toast message*/
+    // This method is calls the toast message
 
     public void getToast()
     {
@@ -114,24 +114,27 @@ public class MainActivity extends AppCompatActivity {
         toast.setGravity(Gravity.END, 0, 0);
         toast.show();
     }
-    /**This toast message is shown as a total score when the SUBMIT button is clicked*/
+
+    //This toast message is shown as a total score when the SUBMIT button is clicked
 
     public void calculateTotalScore()
     {
         // Process total score
-        totalScore += computeQuestion1Score();
-        totalScore += computeQuestion2Score();
-        totalScore += computeQuestion3Score();
-        totalScore += computeQuestion4Score();
+        computeQuestion1Score();
+        computeQuestion2Score();
+        computeQuestion3Score();
+        computeQuestion4Score();
 
-        toastMessage = " Total Score: " + scoreCounter + " points out of a possible 4 points! ";
+        toastMessage = " Total Score: " + scoreCounter + " points out of a possible 4 points! But you got " + wrongAnswer + " wrong .";
         getToast();
     }
 
     // Reset points scored at the end of the quiz
+    
     public void resetScore (View view)    {
         calculateTotalScore();
-        totalScore = 0;
+        wrongAnswer = 0;
+        scoreCounter = 0;
     }
 
 }
