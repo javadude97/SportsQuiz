@@ -97,45 +97,52 @@
             android:text="3: Which team has won the most Super Bowls in history so far in the Super Bowl Era?"
             android:textSize="16sp" />
 
-        <RadioButton
-            android:id="@+id/pittsburgh_steelers"
+        <RadioGroup
+            android:id="@+id/question_3_answers"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:paddingLeft="24dp"
-            android:text="Pittsburgh Steelers"
-            android:textAppearance="?android:textAppearanceMedium"
-            android:textSize="16sp" />
+            android:layout_height="wrap_content">
 
-        <RadioButton
-            android:id="@+id/newengland_patriots"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:paddingLeft="24dp"
-            android:text="New England Patriots"
-            android:textAppearance="?android:textAppearanceMedium"
-            android:textSize="16sp" />
+            <RadioButton
+                android:id="@+id/pittsburgh_steelers"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:paddingLeft="24dp"
+                android:text="Pittsburgh Steelers"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textSize="16sp" />
 
-        <RadioButton
-            android:id="@+id/sanfrancisco_niners"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:paddingLeft="24dp"
-            android:text="San Francisco 49ers"
-            android:textAppearance="?android:textAppearanceMedium"
-            android:textSize="16sp" />
+            <RadioButton
+                android:id="@+id/newengland_patriots"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:paddingLeft="24dp"
+                android:text="New England Patriots"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textSize="16sp" />
 
-        <RadioButton
-            android:id="@+id/dallas_cowboys"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:paddingLeft="24dp"
-            android:text="Dallas Cowboys"
-            android:textAppearance="?android:textAppearanceMedium"
-            android:textSize="16sp" />
+            <RadioButton
+                android:id="@+id/sanfrancisco_niners"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:paddingLeft="24dp"
+                android:text="San Francisco 49ers"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textSize="16sp" />
+
+            <RadioButton
+                android:id="@+id/dallas_cowboys"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:paddingLeft="24dp"
+                android:text="Dallas Cowboys"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textSize="16sp" />
+
+        </RadioGroup>
 
         <!-- Fourth Question of the Sports Quiz on NFL -->
 
@@ -148,45 +155,52 @@
             android:textColor="@android:color/black"
             android:textSize="16sp" />
 
-        <RadioButton
-            android:id="@+id/ten_teams"
+        <RadioGroup
+            android:id="@+id/question_4_answers"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:paddingLeft="24dp"
-            android:text="10 Teams"
-            android:textAppearance="?android:textAppearanceMedium"
-            android:textSize="16sp" />
+            android:layout_height="wrap_content">
 
-        <RadioButton
-            android:id="@+id/eight_teams"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:paddingLeft="24dp"
-            android:text="  8 Teams"
-            android:textAppearance="?android:textAppearanceMedium"
-            android:textSize="16sp" />
+            <RadioButton
+                android:id="@+id/ten_teams"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:paddingLeft="24dp"
+                android:text="10 Teams"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textSize="16sp" />
 
-        <RadioButton
-            android:id="@+id/thirteen_teams"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:paddingLeft="24dp"
-            android:text="13 Teams"
-            android:textAppearance="?android:textAppearanceMedium"
-            android:textSize="16sp" />
+            <RadioButton
+                android:id="@+id/eight_teams"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:paddingLeft="24dp"
+                android:text="  8 Teams"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textSize="16sp" />
 
-        <RadioButton
-            android:id="@+id/six_teams"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:paddingLeft="24dp"
-            android:text="  6 Teams"
-            android:textAppearance="?android:textAppearanceMedium"
-            android:textSize="16sp" />
+            <RadioButton
+                android:id="@+id/thirteen_teams"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:paddingLeft="24dp"
+                android:text="13 Teams"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textSize="16sp" />
+
+            <RadioButton
+                android:id="@+id/six_teams"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:paddingLeft="24dp"
+                android:text="  6 Teams"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textSize="16sp" />
+
+        </RadioGroup>
 
         <!-- Calculate the total score on the Sports Quiz on NFL -->
 
